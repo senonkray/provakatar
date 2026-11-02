@@ -97,6 +97,23 @@ body{touch-action:auto;overscroll-behavior-y:auto}
 .question-card>div{max-width:900px;width:100%}
 .card-kicker{display:block;color:var(--red);text-transform:uppercase;letter-spacing:.1em;font-weight:800;font-size:11px;margin-bottom:26px}
 .question-card p{font-size:clamp(calc(27px * var(--card-factor)),calc(4.4vw * var(--card-factor)),calc(58px * var(--card-factor)));overflow-wrap:anywhere}
+.fox-question-card>div{display:flex;flex-direction:column;align-items:center}
+.fox-guide{display:flex;align-items:center;justify-content:center;gap:11px;margin:0 0 23px}
+.fox-face{width:52px;height:52px;display:grid;place-items:center;flex:none;border-radius:17px;background:var(--ink);font-size:29px;box-shadow:0 10px 26px rgba(23,22,21,.14)}
+.fox-bubble{position:relative;min-width:132px;padding:9px 14px;border:1px solid var(--line);border-radius:14px;background:var(--bg);text-align:left}
+.fox-bubble::before{content:'';position:absolute;left:-7px;top:19px;width:12px;height:12px;background:var(--bg);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.fox-bubble span,.fox-bubble strong{position:relative;display:block}
+.fox-bubble span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.fox-bubble strong{font-size:15px;margin-top:2px}
+.player-choice{margin:12px 0 1px;text-align:center}
+.player-choice>p{margin:0 0 10px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.player-choice>div{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.player-choice button{min-width:74px;min-height:74px;padding:8px;border:1px solid var(--line);border-radius:16px;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.player-choice button:hover,.player-choice button:focus-visible{border-color:var(--red);transform:translateY(-2px)}
+.player-choice button span{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:hsl(calc(var(--avatar-index) * 47 + 350) 58% 92%);color:hsl(calc(var(--avatar-index) * 47 + 350) 65% 38%);font-weight:900}
+.player-choice button strong{max-width:84px;overflow:hidden;text-overflow:ellipsis;font-size:11px;white-space:nowrap}
+.game-actions.choice-required .primary,.game-actions.choice-required .secondary{display:none}
+.game-actions.choice-required{display:flex;justify-content:flex-end}
 .game-actions{padding:13px 0 4px}
 .game-small{justify-content:space-between;align-items:center;min-height:44px}
 .game-small button{min-height:44px}
@@ -166,6 +183,11 @@ button:disabled{cursor:not-allowed;opacity:.46;transform:none!important}
  .turn-banner button{font-size:11px;max-width:116px;text-align:right;line-height:1.2}
  .question-card{min-height:clamp(calc(260px * var(--card-factor)),calc(42dvh * var(--card-factor)),calc(500px * var(--card-factor)));padding:24px 21px}
  .question-card p{font-size:clamp(calc(27px * var(--card-factor)),calc(8.1vw * var(--card-factor)),calc(42px * var(--card-factor)))}
+ .fox-guide{margin-bottom:18px}
+ .fox-face{width:46px;height:46px;border-radius:15px;font-size:25px}
+ .fox-bubble{padding:8px 12px}
+ .player-choice{margin-top:10px}
+ .player-choice button{min-width:68px;min-height:68px}
  .card-kicker{margin-bottom:19px}
  .game-actions{grid-template-columns:1fr auto;gap:8px}
  .game-actions .primary{grid-column:1/-1;grid-row:1}
