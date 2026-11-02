@@ -1,4 +1,4 @@
-const CACHE='prov-v7';
+const CACHE='prov-v8';
 const ASSETS=['./','./index.html','./styles.css','./layout.css','./questions-data.js','./question-packs.js','./question-engine.js','./question-selector.js','./app.js','./manifest.webmanifest','./favicon-32.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

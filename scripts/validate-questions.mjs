@@ -32,11 +32,13 @@ for(const question of data.questions){
 
 const questions=data.questions.map(question=>({id:question.id,set:tokens(question.text.ru)}));
 const similar=[];
+const structural=[];
 for(let i=0;i<questions.length;i++)for(let j=i+1;j<questions.length;j++){
   const a=questions[i].set,b=questions[j].set;if(a.size<5||b.size<5)continue;
   let common=0;for(const word of a)if(b.has(word))common++;
   const score=common/(a.size+b.size-common);
   if(score>=.86)similar.push([questions[i].id,questions[j].id,score.toFixed(2)]);
+  else if(score>=.68)structural.push([questions[i].id,questions[j].id,score.toFixed(2)]);
 }
 if(similar.length)errors.push(...similar.slice(0,20).map(item=>`semantic near-duplicate: ${item.join(' / ')}`));
 
@@ -50,6 +52,6 @@ if(safeLeak)errors.push('18+ content leaked into regular mode');
 
 console.table(Object.entries(targets).map(([category,target])=>({category,target,actual:counts[category],checked:counts[category]<=target?'yes':'no'})));
 console.table((data.batches||[]).map(batch=>({...batch,checked:'yes'})));
-console.log(`Total: ${data.questions.length}; unique IDs: ${ids.size}; unique texts: ${normalized.size}; semantic candidates: ${similar.length}`);
+console.log(`Total: ${data.questions.length}; unique IDs: ${ids.size}; unique texts: ${normalized.size}; near-duplicates: ${similar.length}; structurally similar pairs for editorial review: ${structural.length}`);
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log('Validation passed.');
