@@ -20,12 +20,13 @@
       return {...question,text:question.text[lang]||question.text.ru};
     }
     get(id,lang='ru') { return this.localize(this.byId.get(id),lang); }
-    list({category=null,level=null,allowAdult=false,mode=null,ids=null,lang='ru'}={}) {
+    list({category=null,level=null,maxLevel=null,allowAdult=false,mode=null,ids=null,lang='ru'}={}) {
       const idSet=ids?new Set(ids):null;
       return this.all.filter(question=>
         (!idSet||idSet.has(question.id))&&
         (!category||question.category===category)&&
         (!level||question.level===Number(level))&&
+        (!maxLevel||question.level<=Number(maxLevel))&&
         (allowAdult||question.ageRating<18)&&
         (!mode||question.modes.includes(mode))
       ).map(question=>this.localize(question,lang));

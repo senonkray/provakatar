@@ -31,6 +31,18 @@ body{touch-action:auto;overscroll-behavior-y:auto}
 .setup-page .eyebrow{margin:16px 0 8px}
 .setup-page .page-title{margin-top:0;margin-bottom:26px}
 .question-filters{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(220px,.45fr);gap:28px;padding:22px;margin-bottom:16px;background:var(--paper);border:1px solid var(--line);border-radius:20px}
+.question-filters.mixed-filters{grid-template-columns:1fr}
+.profile-block{min-width:0}
+.profile-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:13px}
+.profile-heading .section-title{margin-bottom:4px}
+.profile-heading p{margin:0;color:var(--muted);font-size:12px}
+.profile-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.profile-option{min-height:66px;padding:10px 9px;text-align:left;border:1px solid var(--line);border-radius:13px;background:var(--bg)}
+.profile-option strong,.profile-option small{display:block}
+.profile-option strong{font-size:13px;line-height:1.15}
+.profile-option small{margin-top:5px;color:var(--muted);font-size:10px;line-height:1.2}
+.profile-option.selected{border-color:var(--red);background:rgba(217,46,58,.07);box-shadow:inset 0 0 0 1px var(--red)}
+.profile-option.selected strong{color:var(--red)}
 .level-selector{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 .level-button{min-height:70px;padding:10px 7px;border:1px solid var(--line);border-radius:13px;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--muted)}
 .level-button b{font-size:20px;line-height:1;color:var(--ink)}
@@ -133,6 +145,9 @@ button:disabled{cursor:not-allowed;opacity:.46;transform:none!important}
  .deck .count{margin-top:14px}
  .setup-page .page-title{margin-bottom:22px}
  .question-filters{grid-template-columns:1fr;gap:22px;padding:17px}
+ .profile-options{grid-template-columns:1fr 1fr}
+ .profile-option{min-height:62px}
+ .profile-option:last-child{grid-column:1/-1}
  .level-selector{gap:5px}
  .level-button{min-height:62px;padding:8px 3px}
  .level-button b{font-size:18px}
