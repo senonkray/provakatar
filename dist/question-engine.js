@@ -10,7 +10,7 @@
         if (!Number.isInteger(question.level)||question.level<1||question.level>5) throw new Error(`Invalid level: ${question.id}`);
         if (![12,16,18].includes(question.ageRating)) throw new Error(`Invalid age rating: ${question.id}`);
         if (!Array.isArray(question.modes)||!question.modes.length||question.modes.some(mode=>!['everyone','turns'].includes(mode))) throw new Error(`Invalid modes: ${question.id}`);
-        if (!question.text?.ru||!question.text?.uk) throw new Error(`Missing localization: ${question.id}`);
+        if (!question.text?.ru) throw new Error(`Missing Russian text: ${question.id}`);
         this.byId.set(question.id,Object.freeze({...question,modes:Object.freeze([...question.modes]),text:Object.freeze({...question.text})}));
       });
       this.all=Object.freeze([...this.byId.values()]);
