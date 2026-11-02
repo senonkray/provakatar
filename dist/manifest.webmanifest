@@ -1,0 +1,9 @@
+{
+  "name": "Ооочень провокационная",
+  "short_name": "Провокационная",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F7F5F2",
+  "theme_color": "#F7F5F2",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
